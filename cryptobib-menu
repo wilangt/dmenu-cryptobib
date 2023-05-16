@@ -1,0 +1,1 @@
+dmenu -i -l 5 -sb "dark magenta" < menu.txt | cut -d';' -f1 | tr -d '\n' | xclip -selection clipboard
