@@ -1,4 +1,4 @@
-all: run
+all: init 
 
 menu.txt:
 	pip install bibtexparser
@@ -11,8 +11,11 @@ menu.txt:
 
 init: menu.txt
 
-run: menu.txt
+menu: menu.txt
 	./cryptobib-menu
+
+open: menu.txt
+	./cryptobib-open
 
 clean:
 	rm -f menu.txt input.bib
