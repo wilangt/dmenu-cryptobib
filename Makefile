@@ -18,5 +18,8 @@ menu: menu.txt
 open: menu.txt
 	./cryptobib-open
 
+update:
+	(cd cryptobib && git pull)
+
 clean:
 	rm -f menu.txt input.bib abbrev0_no_empty_strings.bib
