@@ -1,8 +1,6 @@
 import bibtexparser
 
 def main():
-    print("Parsing the big BibTeX file, can take a while (10 to 15 minutes), it's time for coffee!")
-
     with open('input.bib') as bibtex_file:
         bib_database = bibtexparser.load(bibtex_file)
 
