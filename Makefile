@@ -3,7 +3,9 @@ all: menu.txt clean
 menu.txt: cryptobib/crypto.bib
 	sed 's/""/" "/g' cryptobib/abbrev0.bib > abbrev0_no_empty_strings.bib
 	cat abbrev0_no_empty_strings.bib cryptobib/crypto.bib > input.bib
-	@echo "Parsing the big BibTeX file can take up to 15 minutes, perfect for a coffee break!"
+	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
+	@echo "* Parsing the BibTeX file can take up to 15 minutes, perfect for a coffee break! *"
+	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
 	python3 bibparse.py > menu.txt
 
 cryptobib/crypto.bib:
