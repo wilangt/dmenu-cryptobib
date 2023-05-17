@@ -1,0 +1,4 @@
+- Print line about time for parsing in python file
+- Clean python file (with main function for instance)
+- Makefile : separate initialization and setup (+ update doc)
+- Zathura (+ update doc)
