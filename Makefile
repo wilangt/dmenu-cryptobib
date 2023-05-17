@@ -1,4 +1,4 @@
-all: setup init
+all: setup init clean
 
 setup:
 	pip install bibtexparser
@@ -22,4 +22,7 @@ update:
 	(cd cryptobib && git pull)
 
 clean:
-	rm -f menu.txt input.bib abbrev0_no_empty_strings.bib
+	rm -f input.bib abbrev0_no_empty_strings.bib
+
+mrpoper: clean
+	rm -f menu.txt
