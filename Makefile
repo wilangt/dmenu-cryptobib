@@ -1,15 +1,17 @@
-all: init 
+all: menu.txt clean
 
-menu.txt:
-	pip install bibtexparser
-	git submodule init
-	git submodule update
+menu.txt: cryptobib/crypto.bib
 	sed 's/""/" "/g' cryptobib/abbrev0.bib > abbrev0_no_empty_strings.bib
 	cat abbrev0_no_empty_strings.bib cryptobib/crypto.bib > input.bib
-	@echo "Parsing the big TeX file, can take a while ..."
+	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
+	@echo "* Parsing the BibTeX file can take up to 15 minutes, perfect for a coffee break! *"
+	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
 	python3 bibparse.py > menu.txt
 
-init: menu.txt
+cryptobib/crypto.bib:
+	git submodule init
+	@echo "Downloading CryptoBib ..."
+	git submodule update
 
 menu: menu.txt
 	./cryptobib-menu
@@ -17,7 +19,13 @@ menu: menu.txt
 open: menu.txt
 	./cryptobib-open
 
+update_cryptobib:
+	(cd cryptobib && git switch master && git pull)
+
+update: update_cryptobib all
+
 clean:
-	rm -f menu.txt input.bib
+	rm -f input.bib abbrev0_no_empty_strings.bib
 
-
+mrproper: clean
+	rm -f menu.txt
