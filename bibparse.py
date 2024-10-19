@@ -18,8 +18,8 @@ def main():
         print(entry["ID"] if "ID" in entry else "NO ID", end="; ")
         print(entry["author"].replace("\n", " ") if "author" in entry else "NO AUTHOR", end="; ")
         print(entry["title"] if "title" in entry else "NO TITLE", end="")
-        if entry["ID"][:6] == "EPRINT" and "note" in entry and entry["note"][:5] == "\\url{":
-            url = entry["note"][5:-1]  # grab the url of the eprint
+        if entry["ID"][:6] == "EPRINT" and "url" in entry:
+            url = entry["url"]  # grab the url of the eprint
             print(" %", url, end="")
         print()  # New line
 

@@ -1,12 +1,16 @@
 all: menu.txt clean
 
-menu.txt: cryptobib/crypto.bib
+venv/bin/python:
+	python3 -m venv ./venv
+	venv/bin/pip install bibtexparser
+
+menu.txt: cryptobib/crypto.bib venv/bin/activate
 	sed 's/""/" "/g' cryptobib/abbrev0.bib > abbrev0_no_empty_strings.bib
 	cat abbrev0_no_empty_strings.bib cryptobib/crypto.bib > input.bib
 	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
 	@echo "* Parsing the BibTeX file can take up to 15 minutes, perfect for a coffee break! *"
 	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
-	python3 bibparse.py > menu.txt
+	venv/bin/python bibparse.py > menu.txt
 
 cryptobib/crypto.bib:
 	git submodule init
