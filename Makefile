@@ -1,10 +1,8 @@
 all: menu.txt clean
 
-venv/bin/activate:
+venv/bin/python:
 	python3 -m venv ./venv
-	source venv/bin/activate
-	pip install bibtexparser
-	deactivate
+	venv/bin/pip install bibtexparser
 
 menu.txt: cryptobib/crypto.bib venv/bin/activate
 	sed 's/""/" "/g' cryptobib/abbrev0.bib > abbrev0_no_empty_strings.bib
@@ -12,7 +10,7 @@ menu.txt: cryptobib/crypto.bib venv/bin/activate
 	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
 	@echo "* Parsing the BibTeX file can take up to 15 minutes, perfect for a coffee break! *"
 	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"
-	python3 bibparse.py > menu.txt
+	venv/bin/python bibparse.py > menu.txt
 
 cryptobib/crypto.bib:
 	git submodule init
