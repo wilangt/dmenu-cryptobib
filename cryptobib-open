@@ -1,1 +1,0 @@
-open $(grep "EPRINT" menu.txt | dmenu -i -l 10 -sb "web green" | cut -d'%' -f2 | tr -d ' ' | tr -d '\n').pdf

@@ -1,16 +1,17 @@
 # Cryptobib Menu
 
-dmenu with cryptobib entries inside.
+dmenu with cryptobib entries.
 
+## `dmenu-cryptobib.sh`
 Select a cryptobib entry with key words in its title, authors, bibtex ID or IACR
-eprint ID (1996/014 for instance), and copy its bibtex ID to clipboard for fast
-citation insertion in a TeX file.
+eprint ID (e.g. 1996/014), and copy its bibtex ID to clipboard for fast
+cite insertion in a TeX file.
 
-Open an IACR eprint article in a browser using `cryptobib-open`.
+## `dmenu-eprint.sh`
+Open an IACR eprint article in a browser.
 
 ## Dependency
-python3, git, xclip, dmenu, xdg-open (only for cryptobib-open) and bibtexparser 
-python module (`pip install bibtexparser`)
+python3, pip, git, xclip, dmenu, xdg-open (only for cryptobib-open)
 
 ## Setup
 First, install the dependencies.
@@ -21,8 +22,8 @@ out of date).
 
 ## Usage
 `make` to automatically do the setup (can take a while).
-`make menu` or `./cryptobib-menu` to copy bibtex ID of the selected item.
-`make open` or `./cryptobib-open` to open an IACR eprint article in a browser.
+`make cryptobib` or `bash dmenu-cryptobib.sh` to copy bibtex ID of the selected item.
+`make eprint` or `bash dmenu-eprint.sh` to open an IACR eprint article in a browser.
 
 ## Update
 To update the cryptobib database, one needs to git pull the cryptobib repository
