@@ -1,7 +1,7 @@
 all: menu.txt clean
 
 venv/bin/python:
-	python3 -m venv ./venv
+	python -m venv ./venv
 	venv/bin/pip install bibtexparser
 
 menu.txt: cryptobib/crypto.bib venv/bin/activate
@@ -17,11 +17,11 @@ cryptobib/crypto.bib:
 	@echo "Downloading CryptoBib ..."
 	git submodule update
 
-menu: menu.txt
-	./cryptobib-menu
+cryptobib: menu.txt
+	bash dmenu-cryptobib.sh
 
-open: menu.txt
-	./cryptobib-open
+eprint: menu.txt
+	bash dmenu-eprint.sh
 
 update_cryptobib:
 	(cd cryptobib && git switch master && git pull)
