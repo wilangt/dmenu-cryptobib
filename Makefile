@@ -1,10 +1,10 @@
 all: menu.txt clean
 
 venv/bin/python:
-	python -m venv ./venv
+	python3 -m venv ./venv
 	venv/bin/pip install bibtexparser
 
-menu.txt: cryptobib/crypto.bib venv/bin/activate
+menu.txt: cryptobib/crypto.bib venv/bin/python
 	sed 's/""/" "/g' cryptobib/abbrev0.bib > abbrev0_no_empty_strings.bib
 	cat abbrev0_no_empty_strings.bib cryptobib/crypto.bib > input.bib
 	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  *"

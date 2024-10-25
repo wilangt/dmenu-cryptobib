@@ -11,7 +11,7 @@ cite insertion in a TeX file.
 Open an IACR eprint article in a browser.
 
 ## Dependency
-python, pip, git, xclip, dmenu, xdg-open (only for cryptobib-open)
+python3, pip, git, xclip, dmenu, xdg-open (only for cryptobib-open)
 
 ## Setup
 First, install the dependencies.
