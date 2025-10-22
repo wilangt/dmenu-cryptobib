@@ -1,3 +1,5 @@
+.PHONY: menu.txt
+
 all: menu.txt clean
 
 venv/bin/python:
